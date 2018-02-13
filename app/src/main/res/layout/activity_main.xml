@@ -1,9 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@drawable/bgdstyle"
     android:layout_height="match_parent"
     tools:context="com.fcproject.grabhouce.MainActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:textSize="20dp"
+        android:textColor="#ffff"
+        android:text="Account Login"
+        android:textStyle="bold"
+        android:id="@+id/textView" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="380dp"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="95dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/bannerstyle"
+        android:padding="10dp">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="325dp"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/linearLayout">
+
+        <EditText
+            android:id="@+id/etEmail"
+            android:drawableLeft="@android:drawable/ic_dialog_email"
+            android:drawableTint="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textEmailAddress"
+            android:hint="  Enter Email" />
+
+        <EditText
+            android:id="@+id/etPassword"
+            android:drawableLeft="@android:drawable/ic_lock_lock"
+            android:drawableTint="@color/colorPrimary"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPassword"
+            android:hint="Enter Password"/>
+
+        <Button
+            android:id="@+id/btnLogin"
+            android:layout_marginTop="10dp"
+            android:elevation="5dp"
+            android:onClick="loginF"
+            android:background="@drawable/buttonstyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Login" />
+
+        <Button
+            android:id="@+id/btnCreate"
+            android:elevation="5dp"
+            android:onClick="createF"
+            android:background="@drawable/buttonstyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Create new account" />
+
+        <Button
+            android:id="@+id/btnGoogle"
+            android:elevation="5dp"
+            android:onClick="googleF"
+            android:background="@drawable/buttonstyle"
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="google" />
+
+    </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvForgot"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="10dp"
+            android:textSize="15dp"
+            android:text="Forgot Passoword?" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/user_profile_photo"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true"
+        android:elevation="4dp"
+        app:srcCompat="@drawable/login" />
+</RelativeLayout>
