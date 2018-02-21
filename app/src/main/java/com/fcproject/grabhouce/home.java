@@ -1,5 +1,6 @@
 package com.fcproject.grabhouce;
 
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -15,6 +16,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import java.util.concurrent.BlockingDeque;
+
 public class home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
@@ -26,6 +29,7 @@ public class home extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
+        tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
         final ViewPager  viewpager = findViewById(R.id.viewpager);
 
         tabsPager tabspager = new tabsPager(getSupportFragmentManager(),tabLayout.getTabCount());
@@ -117,4 +121,6 @@ public class home extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+
 }

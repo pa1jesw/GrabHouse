@@ -19,7 +19,8 @@ public class tabsPager extends FragmentStatePagerAdapter{
     }
 
     @Override
-    public CharSequence getPageTitle(int position) {
+    public CharSequence getPageTitle(int position)
+    {
         return titles[position];
     }
 
@@ -41,7 +42,8 @@ public class tabsPager extends FragmentStatePagerAdapter{
     }
 
     @Override
-    public int getCount() {
+    public int getCount()
+    {
         return mNumberOfTabs;
     }
 }
