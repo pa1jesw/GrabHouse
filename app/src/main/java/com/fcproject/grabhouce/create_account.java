@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class create_account extends AppCompatActivity {
+public class create_account extends AppCompatActivity  {
 
     Button btnSignup;
     @Override

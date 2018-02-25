@@ -7,6 +7,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import static java.sql.Types.NULL;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -33,6 +36,25 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i1);
             }
         });
+        btnLogin.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String email= String.valueOf(etEmail.getText());
+                String pass= String.valueOf(etPassword.getText());
+
+                if(email.length()!=0 && pass.length()!=0)
+                {
+                    Intent i2 = new Intent(MainActivity.this, home.class);
+                    startActivity(i2);
+                }
+                else
+                {
+                    Toast.makeText(getApplicationContext(),"PLEASE ENTER THE DETAILS",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
 
 
     }

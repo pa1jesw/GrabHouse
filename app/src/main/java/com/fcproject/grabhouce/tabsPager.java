@@ -1,8 +1,11 @@
 package com.fcproject.grabhouce;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
+
+import static com.fcproject.grabhouce.R.*;
 
 /**
  * Created by MUKESH on 14-02-2018.
@@ -12,6 +15,8 @@ public class tabsPager extends FragmentStatePagerAdapter{
 
     int mNumberOfTabs;
     String [] titles = new String[]{"Purchase","Rent","Sell"};
+
+
 
     public tabsPager(FragmentManager fm,int NumberOfTabs) {
         super(fm);
