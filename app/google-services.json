@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "253364051728",
-    "firebase_url": "https://grabhouse-d6c57.firebaseio.com",
-    "project_id": "grabhouse-d6c57",
-    "storage_bucket": "grabhouse-d6c57.appspot.com"
+    "project_number": "770079560051",
+    "firebase_url": "https://grabhouse-d5e00.firebaseio.com",
+    "project_id": "grabhouse-d5e00",
+    "storage_bucket": "grabhouse-d5e00.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:253364051728:android:81a9becc7cae49d4",
+        "mobilesdk_app_id": "1:770079560051:android:81a9becc7cae49d4",
         "android_client_info": {
           "package_name": "com.fcproject.grabhouce"
         }
       },
       "oauth_client": [
         {
-          "client_id": "253364051728-c3e97rm915sh1ctd78nsrb7oa9j9n69u.apps.googleusercontent.com",
+          "client_id": "770079560051-6n6erectcnl75eefd5d32hc35qr8pfl5.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.fcproject.grabhouce",
@@ -23,21 +23,13 @@
           }
         },
         {
-          "client_id": "253364051728-khm7oksf1dmci0b4l67ehbtlrmnpj5r6.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.fcproject.grabhouce",
-            "certificate_hash": "df04c2a91927d78c89f1f133b54a15250eec77d7"
-          }
-        },
-        {
-          "client_id": "253364051728-e6clh88b7ic1gnidefd3ph74uhckq5bc.apps.googleusercontent.com",
+          "client_id": "770079560051-fsl8hjt263cevulmb14evoidsk5g6q92.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyCJ6pYFlVtdCbwWLzemvyrJZocqE0zwWWk"
+          "current_key": "AIzaSyCAAnqdWeFgTcvgIsnzAAr1ig3uA2GJ0hU"
         }
       ],
       "services": {
@@ -48,7 +40,7 @@
           "status": 2,
           "other_platform_oauth_client": [
             {
-              "client_id": "253364051728-e6clh88b7ic1gnidefd3ph74uhckq5bc.apps.googleusercontent.com",
+              "client_id": "770079560051-fsl8hjt263cevulmb14evoidsk5g6q92.apps.googleusercontent.com",
               "client_type": 3
             }
           ]
