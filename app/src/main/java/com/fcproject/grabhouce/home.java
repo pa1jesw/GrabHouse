@@ -1,5 +1,7 @@
 package com.fcproject.grabhouce;
 
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -16,10 +18,15 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 import java.util.concurrent.BlockingDeque;
 
 public class home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+
+    private FirebaseAuth mAuth;
+    private ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +34,9 @@ public class home extends AppCompatActivity
         setContentView(R.layout.activity_home);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        mAuth=FirebaseAuth.getInstance();
+        progressDialog = new ProgressDialog(this);
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
@@ -115,6 +125,13 @@ public class home extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }
+        else if(id == R.id.nav_logout){
+            progressDialog.setMessage("Logging Out");
+            progressDialog.show();
+            mAuth.signOut();    //logout user
+            finish();   //finish current activity
+            startActivity(new Intent(getApplicationContext(),MainActivity.class));
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

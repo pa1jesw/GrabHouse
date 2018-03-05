@@ -1,12 +1,14 @@
 package com.fcproject.grabhouce;
 
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 
 import android.support.annotation.NonNull;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -28,15 +30,15 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class create_account extends AppCompatActivity {
+public class create_account extends AppCompatActivity implements View.OnClickListener {
 
     Button btnSignup, btnCancel, btnFacebook;
 
-     GoogleSignInClient mGoogleSignInClient;
+    GoogleSignInClient mGoogleSignInClient;
     EditText etEmail, etPassword;
+    private ProgressDialog progressDialog;
     int RC_SIGN_IN=234;
     private FirebaseAuth mAuth;
-
 
 
     @Override
@@ -46,7 +48,7 @@ public class create_account extends AppCompatActivity {
         btnSignup = findViewById(R.id.btnSignUp);
         btnCancel = findViewById(R.id.btnCancel);
         mAuth = FirebaseAuth.getInstance();
-
+        progressDialog = new ProgressDialog(this);
         etEmail = findViewById(R.id.etEmail);
         etPassword = findViewById(R.id.etPassword);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -57,21 +59,10 @@ public class create_account extends AppCompatActivity {
 
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
 
-        btnSignup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String email = String.valueOf(etEmail.getText());
-                String pass = String.valueOf(etPassword.getText());
 
-                if (email.length() != 0 && pass.length() != 0) {
-                    Intent i = new Intent(create_account.this, tabsPager.class);
-                    startActivity(i);
-                } else {
-                    Toast.makeText(getApplicationContext(), "PLEASE ENTER THE DETAILS",
-                            Toast.LENGTH_LONG).show();
-                }
-            }
-        });
+
+        btnSignup.setOnClickListener(this);
+
         findViewById(R.id.btnGoogle).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,9 +81,48 @@ public class create_account extends AppCompatActivity {
 
     }//on create close
 
+    public void onClick(View view){
+        if(view == btnSignup){
+            registerUser();
+        }
+    }
+
+    private void registerUser() {
+        String email = etEmail.getText().toString().trim();
+        String password = etPassword.getText().toString().trim();
+        if(TextUtils.isEmpty(email)){
+            Toast.makeText(this,"Please enter email",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        if(TextUtils.isEmpty(password)){
+            Toast.makeText(this,"Please enter password",Toast.LENGTH_LONG).show();
+            return;
+        }
+
+        //if the email and password are not empty
+        //displaying a progress dialog
+
+        progressDialog.setMessage("Registering You");
+        progressDialog.show();
+
+        mAuth.createUserWithEmailAndPassword(email,password).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Toast.makeText(create_account.this, "Success ! Start Exploring", Toast.LENGTH_LONG).show();
+                    startActivity(new Intent(getApplicationContext(),home.class));
+                }
+                else{
+                    Toast.makeText(create_account.this, "Registration Error", Toast.LENGTH_SHORT).show();
+                }
+                progressDialog.dismiss();
+            }
+        });
+    }
 
 
-        public void onActivityResult(int requestCode, int resultCode, Intent data)
+    public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
             super.onActivityResult(requestCode, resultCode,data);
 
@@ -125,28 +155,20 @@ public class create_account extends AppCompatActivity {
                             Log.d("ABC1", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(create_account.this,"SIGN IN SUCCESSFULLY",Toast.LENGTH_LONG);
-
+                            startActivity(new Intent(getApplicationContext(),home.class));
                         } else {
                             // If sign in fails, display a message to the user.
                             Toast.makeText(create_account.this,"Authetication Failed",Toast.LENGTH_LONG);
                             Log.d("Failed","Failed",task.getException());
                         }
-
-
                     }
                 });
-
-
     }
     private void signIn()
-
     {
-
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
-
         startActivityForResult(signInIntent, RC_SIGN_IN);
     }
-
 }
 
 
