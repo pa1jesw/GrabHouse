@@ -157,7 +157,7 @@ public class create_account extends AppCompatActivity implements View.OnClickLis
                             Toast.makeText(create_account.this,"SIGN IN SUCCESSFULLY",Toast.LENGTH_LONG);
                             startActivity(new Intent(getApplicationContext(),home.class));
                         } else {
-                            // If sign in fails, display a message to the user.
+                            // If sign in fails , display a message to the user.
                             Toast.makeText(create_account.this,"Authetication Failed",Toast.LENGTH_LONG);
                             Log.d("Failed","Failed",task.getException());
                         }
