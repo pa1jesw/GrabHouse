@@ -1,5 +1,6 @@
 package com.fcproject.grabhouce;
 
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
@@ -24,6 +25,7 @@ import android.view.MenuItem;
 import android.webkit.MimeTypeMap;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -53,6 +55,12 @@ public class home extends AppCompatActivity
     private String txtImageName="img";
     private TextView email;
     private Uri imgUri;
+    SeekBar seek;
+    SeekBar seekprice;
+    TextView seektext,textclose;
+    TextView seektextprice,textcloseprice;
+    Dialog myDialog;
+    Dialog myDialogPrice;
 
     public static final String STORAGE_PATH="image/";
     public static  final String DATABASE_PATH="image";
@@ -71,6 +79,7 @@ public class home extends AppCompatActivity
 
         imageView = findViewById(R.id.profile_image);
         email = findViewById(R.id.email);
+
 
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
@@ -195,6 +204,81 @@ public class home extends AppCompatActivity
         return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
     }
 
+    public void seekbar(){
+
+        myDialog = new Dialog(this);
+        myDialog.setContentView(R.layout.range_popup);
+        seek = (SeekBar) myDialog.findViewById(R.id.seek);
+        seektext = (TextView) myDialog.findViewById(R.id.seektext);
+        textclose = (TextView) myDialog.findViewById(R.id.textclose);
+
+        seek.setMax(100);
+        seek.setProgress(10);
+        textclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialog.dismiss();
+                seek.setProgress(seek.getProgress());
+            }
+        });
+        myDialog.show();
+        seektext.setText("Kms:"+seek.getProgress()+"kms/"+seek.getMax()+"kms");
+        seek.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                seektext.setText("Kms:"+i+"kms/"+seek.getMax()+"kms");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
+
+    public void seekbarprice(){
+
+        myDialogPrice = new Dialog(this);
+        myDialogPrice.setContentView(R.layout.price_popup);
+        seekprice = (SeekBar) myDialogPrice.findViewById(R.id.seekprice);
+        seektextprice = (TextView) myDialogPrice.findViewById(R.id.seektextprice);
+        textcloseprice = (TextView) myDialogPrice.findViewById(R.id.textcloseprice);
+
+        seekprice.setMax(1000);
+        seekprice.setProgress(100);
+        textcloseprice.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                myDialogPrice.dismiss();
+                seekprice.setProgress(seekprice.getProgress());
+            }
+        });
+        myDialogPrice.show();
+        seektextprice.setText("₹:"+seekprice.getProgress()+"₹/"+seekprice.getMax()+"₹");
+        seekprice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
+                seektextprice.setText("In Lakhs: "+i+"₹/"+seekprice.getMax()+"₹");
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -234,9 +318,9 @@ public class home extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_range) {
-            // Handle the camera action
+            seekbar();
         } else if (id == R.id.nav_price) {
-
+            seekbarprice();
         } else if (id == R.id.nav_bookmark) {
 
         } else if (id == R.id.nav_share) {
@@ -256,6 +340,4 @@ public class home extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
-
-
 }
