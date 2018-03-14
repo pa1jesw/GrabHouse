@@ -45,7 +45,7 @@ public class rentFragment extends Fragment {
         }
         public RecyclerViewHolder(LayoutInflater inflater,ViewGroup container)
         {
-            super(inflater.inflate(R.layout.card_view,container,false));
+            super(inflater.inflate(R.layout.card_view_rent,container,false));
             mCardView=itemView.findViewById(R.id.cv_rent);
             mTextView=itemView.findViewById(R.id.text_holder1);
 
@@ -62,10 +62,6 @@ public class rentFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-
-        }
-
-        public void onBindViewHolder(purchaseFragment.RecyclerViewHolder holder, int position) {
 
         }
 
