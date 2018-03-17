@@ -1,17 +1,15 @@
 package com.fcproject.grabhouce;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
+import android.app.Fragment;
 import android.app.ProgressDialog;
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.MediaStore;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.speech.tts.TextToSpeech;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -22,31 +20,29 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.webkit.MimeTypeMap;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.SeekBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.tasks.OnFailureListener;
-import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.storage.FirebaseStorage;
-import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.storage.UploadTask;
 
-import java.io.ByteArrayOutputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.util.concurrent.BlockingDeque;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Locale;
 
 public class home extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
+    private static Dialog myDialog;
+    private static SeekBar seek;
+    private static TextView seektext;
+    private static TextView textclose;
     private FirebaseAuth mAuth;
     private ProgressDialog progressDialog;
     private StorageReference mStorageRef;
@@ -55,16 +51,19 @@ public class home extends AppCompatActivity
     private String txtImageName="img";
     private TextView email;
     private Uri imgUri;
-    SeekBar seek;
     SeekBar seekprice;
-    TextView seektext,textclose;
+    TextView textcloserate;
     TextView seektextprice,textcloseprice;
-    Dialog myDialog;
     Dialog myDialogPrice;
+    Dialog Rating;
+    RatingBar ratBar;
+    Button btnRate;
+    TextToSpeech tts;
 
     public static final String STORAGE_PATH="image/";
     public static  final String DATABASE_PATH="image";
     public static final int REQUEST_CODE=1234;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,13 +79,13 @@ public class home extends AppCompatActivity
         imageView = findViewById(R.id.profile_image);
         email = findViewById(R.id.email);
 
-
         TabLayout tabLayout = findViewById(R.id.tabs);
         tabLayout.setTabGravity(tabLayout.GRAVITY_FILL);
-        final ViewPager  viewpager = findViewById(R.id.viewpager);
 
         tabsPager tabspager = new tabsPager(getSupportFragmentManager(),tabLayout.getTabCount());
 
+
+        final ViewPager  viewpager = findViewById(R.id.viewpager);
         viewpager.setAdapter(tabspager);
         viewpager.setOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
 
@@ -116,93 +115,9 @@ public class home extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
     }
 
-    //selecting image on click
-    public void browse_img(View view){
-        Intent i = new Intent();
-        i.setType("image/*");
-        i.setAction(Intent.ACTION_GET_CONTENT);
-        startActivityForResult(Intent.createChooser(i,"select image"),REQUEST_CODE);
-    }
-
-    public void btnUpload_img(View view)
-    {
-        if(imgUri != null)
-        {
-            final ProgressDialog dialog = new ProgressDialog(this);
-            dialog.setTitle("Uploading Profile Photo");
-            dialog.show();
-            //get the storage ref to store the image
-            StorageReference ref = mStorageRef.child(STORAGE_PATH + System.currentTimeMillis()+"."+getImgExt(imgUri));
-            //adding file to ref
-            ref.putFile(imgUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                @Override
-                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-
-                    //dismiss dialog when success
-                    dialog.dismiss();
-                    //Display success toast
-                    Toast.makeText(home.this, "Image Uploaded", Toast.LENGTH_SHORT).show();
-                    ImageUpload imageUpload = new ImageUpload(txtImageName,taskSnapshot.getDownloadUrl().toString());
-
-                    //save imageinfo in firebase database
-                    String uploadid = mDatabaseRef.push().getKey();
-                    mDatabaseRef.child(uploadid).setValue(imageUpload);
-
-                }
-            })
-                    .addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            //dismiss dialog when error
-                            dialog.dismiss();
-                            //Display error toast
-                            Toast.makeText(home.this,e.getMessage(), Toast.LENGTH_SHORT).show();
-                        }
-                    })
-                    .addOnProgressListener(new OnProgressListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onProgress(UploadTask.TaskSnapshot taskSnapshot) {
-                            //show upload progess
-                            double progress = (100 * taskSnapshot.getBytesTransferred()) / taskSnapshot.getTotalByteCount();
-                            dialog.setMessage("Uploaded "+(int)progress+"%");
-                        }
-                    });
-        }
-        else{
-            Toast.makeText(this, "Please Select Image", Toast.LENGTH_SHORT).show();
-        }
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == REQUEST_CODE && resultCode == RESULT_OK )
-        {
-            try{
-                Intent pro = new Intent(getApplicationContext(),Set_Image.class);
-                imgUri = data.getData();
-                Bitmap bm = MediaStore.Images.Media.getBitmap(getContentResolver(),imgUri);
-                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                bm.compress(Bitmap.CompressFormat.PNG,50,bs);
-                pro.putExtra("byteArray",bs.toByteArray());
-                //pro.putExtra("byteArray",bm);
-                Toast.makeText(this, ""+bs.toString(), Toast.LENGTH_SHORT).show();
-                //startActivity(pro);
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public String getImgExt(Uri uri){
-        ContentResolver contentResolver = getContentResolver();
-        MimeTypeMap mimeTypeMap = MimeTypeMap.getSingleton();
-        return mimeTypeMap.getExtensionFromMimeType(contentResolver.getType(uri));
-    }
 
     public void seekbar(){
 
@@ -242,6 +157,7 @@ public class home extends AppCompatActivity
     }
 
 
+
     public void seekbarprice(){
 
         myDialogPrice = new Dialog(this);
@@ -279,6 +195,42 @@ public class home extends AppCompatActivity
         });
     }
 
+    public void rating()
+    {
+        Rating = new Dialog(this);
+        Rating.setContentView(R.layout.rate_us);
+        textcloserate = (TextView) Rating.findViewById(R.id.textcloserate);
+        ratBar = (RatingBar) Rating.findViewById(R.id.ratBar);
+        btnRate = (Button) Rating.findViewById(R.id.btnRate);
+
+        Rating.show();
+
+        textcloserate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Rating.dismiss();
+            }
+        });
+
+        tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
+            @Override
+            public void onInit(int i) {
+                tts.setLanguage(Locale.CANADA);
+                tts.setPitch(1.2f);
+            }
+        });
+
+        btnRate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                final String rbGet = "Thank You Rating is " +String.valueOf(ratBar.getRating());
+                tts.speak(rbGet,TextToSpeech.QUEUE_FLUSH,null);
+                Toast.makeText(home.this, "Successfully Rated", Toast.LENGTH_SHORT).show();
+                btnRate.setText("Rated");
+            }
+        });
+    }
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -311,6 +263,7 @@ public class home extends AppCompatActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @SuppressLint("ResourceType")
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -322,11 +275,17 @@ public class home extends AppCompatActivity
         } else if (id == R.id.nav_price) {
             seekbarprice();
         } else if (id == R.id.nav_bookmark) {
-
+            Intent i = new Intent(this,bookmarks.class);
+            startActivity(i);
         } else if (id == R.id.nav_share) {
+            String message = "Download share and enjoy grabing your house handsON";
+            Intent i = new Intent(Intent.ACTION_SEND);
+            i.setType("text/plain");
+            i.putExtra(Intent.EXTRA_TEXT,message);
+            startActivity(i);
 
         } else if (id == R.id.nav_rate) {
-
+            rating();
         }
         else if(id == R.id.nav_logout){
             progressDialog.setMessage("Logging Out");
