@@ -12,20 +12,25 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/xyz"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+
         <activity android:name=".create_account" />
         <activity
             android:name=".home"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Set_Image" />
-        <activity android:name=".bookmarks"></activity>
+        <activity android:name=".bookmarks" />
+        <activity android:name=".OnBoarding" />
+        <activity android:name=".Preferences"><intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+        <activity android:name=".SplashActivity"></activity>
     </application>
 
 </manifest>

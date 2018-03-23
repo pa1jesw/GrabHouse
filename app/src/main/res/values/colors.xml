@@ -7,4 +7,14 @@
     <color name="green">#45bc62</color>
     <color name="orange">#eaad43</color>
     <color name="white">#ffff</color>
+
+    <color name="solid_one">#ff4161</color>
+    <color name="solid_two">#3bc2e4</color>
+    <color name="solid_three">#ffce00</color>
+
+
+    <color name="cp">#ff4161</color>
+    <color name="cpDark">#f16d83</color>
+    <color name="cpA">#395564</color>
+
 </resources>
