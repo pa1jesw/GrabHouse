@@ -18,4 +18,8 @@
     <color name="cpAA">#395564</color>
     <color name="cpA">#f41c59</color>
 
+
+    <color name="btnPressed">#4adfd8</color>
+    <color name="btn">#f74848</color>
+    <color name="btnNotPressed">#019e1b</color>
 </resources>
