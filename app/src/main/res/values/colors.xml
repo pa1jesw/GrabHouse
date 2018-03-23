@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#3F51B5</color>
-    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorPrimary">#02877c</color>
+    <color name="colorPrimaryDark">#11998e</color>
     <color name="colorAccent">#FF4081</color>
     <color name="bluelight">#49acd5</color>
     <color name="green">#45bc62</color>
@@ -15,6 +15,7 @@
 
     <color name="cp">#ff4161</color>
     <color name="cpDark">#f16d83</color>
-    <color name="cpA">#395564</color>
+    <color name="cpAA">#395564</color>
+    <color name="cpA">#f41c59</color>
 
 </resources>

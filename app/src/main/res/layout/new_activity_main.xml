@@ -1,30 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     xmlns:custom="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/onboardingcolor"
-    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+        android:background="@drawable/onboardingcolor"
+    android:layout_height="match_parent">
 
-    tools:context="com.fcproject.grabhouce.create_account">
 
-   <ImageView
-       android:id="@+id/img1"
-       android:layout_margin="20dp"
-       android:background="@drawable/logo"
-       android:layout_width="match_parent"
-       android:layout_height="150dp" />
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.461"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo"
+        tools:ignore="VectorDrawableCompat" />
 
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/textInputLayout3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
         android:layout_marginTop="5dp"
         android:padding="10dp"
         android:textColor="#151313"
-        android:layout_below="@+id/img1">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/textInputLayout9"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.126">
 
         <EditText
             android:id="@+id/ed_email"
@@ -54,10 +67,16 @@
         android:id="@+id/textInputLayout9"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="228dp"
         android:padding="10dp"
         android:textColor="#151313"
-        android:layout_below="@+id/textInputLayout3"
-               app:passwordToggleEnabled="true">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:passwordToggleEnabled="true">
 
         <EditText
             android:id="@+id/ed_password"
@@ -83,7 +102,7 @@
     </android.support.design.widget.TextInputLayout>
 
     <com.dd.processbutton.iml.ActionProcessButton
-        android:id="@+id/btnFirebaseSignUp"
+        android:id="@+id/btnFirebaseLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -91,9 +110,8 @@
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
         android:fontFamily="monospace"
-        android:onClick="registerUser"
-        android:text="@string/register"
-        android:layout_below="@+id/textInputLayout9"
+        android:onClick="login"
+        android:text="@string/login"
         android:textColor="@android:color/white"
         android:textSize="14sp"
         android:textStyle="bold"
@@ -111,61 +129,55 @@
         custom:pb_colorProgress="@color/purple_progress"
         custom:pb_textComplete="Success"
         custom:pb_textError="Error"
-        custom:pb_textProgress="Creating Account.."  />
-    <!--<EditText-->
-        <!--android:id="@+id/etEmail"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignParentStart="true"-->
-        <!--android:layout_below="@+id/textView2"-->
-        <!--android:layout_marginTop="30dp"-->
-        <!--android:ems="10"-->
-        <!--android:drawableLeft="@android:drawable/ic_dialog_email"-->
-        <!--android:textColor="#372c24"-->
-        <!--android:hint="Email"-->
-        <!--android:inputType="textPersonName" />-->
+        custom:pb_textProgress="Logging You in.." />
 
-    <!--<EditText-->
-        <!--android:id="@+id/etPassword"-->
-        <!--android:drawableLeft="@android:drawable/ic_lock_lock"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:textColor="#372c24"-->
-        <!--android:layout_alignStart="@+id/etEmail"-->
-        <!--android:layout_below="@+id/etEmail"-->
-        <!--android:layout_marginTop="33dp"-->
-        <!--android:ems="10"-->
-        <!--android:hint="Password"-->
-        <!--android:inputType="textPassword" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/btnSignUp"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignEnd="@+id/textView2"-->
-        <!--android:layout_centerVertical="true"-->
-        <!--android:layout_marginEnd="15dp"-->
-        <!--android:text="Sign Up" />-->
-
-    <!--<Button-->
-        <!--android:id="@+id/btnCancel"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignTop="@+id/btnSignUp"-->
-        <!--android:layout_marginStart="33dp"-->
-        <!--android:layout_toEndOf="@+id/textView2"-->
-        <!--android:text="Cancel" />-->
-
-    <!--<com.google.android.gms.common.SignInButton-->
-        <!--android:id="@+id/btnGoogle"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_marginLeft="5dp"-->
-        <!--android:layout_marginRight="5dp"-->
-        <!--android:onClick="GooglesignIn"-->
-        <!--android:layout_below="@+id/btnFirebaseSignUp"-->
-        <!--android:layout_centerHorizontal="true"-->
-        <!--/>-->
+    <TextView
+        android:id="@+id/forgot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="12dp"
+        android:fontFamily="monospace"
+        android:onClick="forgot"
+        android:text="@string/forgot"
+        android:textColor="@color/black"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/btnFirebaseSignUp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnFirebaseLogin"
+        app:layout_constraintVertical_bias="0.703" />
 
 
-</RelativeLayout>
+    <com.dd.processbutton.iml.ActionProcessButton
+        android:id="@+id/btnFirebaseSignUp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="76dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:fontFamily="monospace"
+        android:onClick="firebaseSignUp"
+        android:text="@string/create"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:pb_cornerRadius="8dp"
+        custom:pb_colorComplete="@color/green_complete"
+        custom:pb_colorError="@color/red_error"
+        custom:pb_colorNormal="@color/cpAA"
+        custom:pb_colorPressed="@color/blue_pressed"
+        custom:pb_colorProgress="@color/purple_progress"
+        custom:pb_textComplete="Success"
+        custom:pb_textError="Error"
+        custom:pb_textProgress="Creating Account.." />
+
+
+</android.support.constraint.ConstraintLayout>

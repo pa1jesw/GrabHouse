@@ -16,4 +16,10 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_bookmarks">bookmarks</string>
+    <string name="email"><b>Email_id</b></string>
+    <string name="pass">password</string>
+    <string name="login">Login</string>
+    <string name="create">New User? Create Account</string>
+    <string name="forgot">forgot password?</string>
+    <string name="register">Create Account</string>
 </resources>

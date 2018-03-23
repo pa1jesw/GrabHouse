@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/GrabHouse.iml" filepath="$PROJECT_DIR$/.idea/GrabHouse.iml" />
-      <module fileurl="file://D:\NOTES\AndroidProjects\gb\GrabHouse\GrabHouse.iml" filepath="D:\NOTES\AndroidProjects\gb\GrabHouse\GrabHouse.iml" />
+      <module fileurl="file://$PROJECT_DIR$/GrabHouse.iml" filepath="$PROJECT_DIR$/GrabHouse.iml" />
       <module fileurl="file://C:\Users\MUKESH\Desktop\GrabHouse\GrabHouse.iml" filepath="C:\Users\MUKESH\Desktop\GrabHouse\GrabHouse.iml" />
+      <module fileurl="file://D:\AndroidStudioProjects\GrabHousee\GrabHouse\.idea\GrabHouse.iml" filepath="D:\AndroidStudioProjects\GrabHousee\GrabHouse\.idea\GrabHouse.iml" />
+      <module fileurl="file://D:\NOTES\AndroidProjects\gb\GrabHouse\GrabHouse.iml" filepath="D:\NOTES\AndroidProjects\gb\GrabHouse\GrabHouse.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://C:\Users\MUKESH\Desktop\GrabHouse\app\app.iml" filepath="C:\Users\MUKESH\Desktop\GrabHouse\app\app.iml" />
       <module fileurl="file://D:\NOTES\AndroidProjects\gb\GrabHouse\app\app.iml" filepath="D:\NOTES\AndroidProjects\gb\GrabHouse\app\app.iml" />

@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:id="@+id/GrabHouseView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:padding="5dp">
+
+        <RelativeLayout
+            android:id="@+id/rl"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp">
+
+            <ImageView
+                android:id="@+id/ProductImg"
+                android:layout_width="60dp"
+                android:layout_height="100dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_launcher_background" />
+
+            <TextView
+                android:id="@+id/Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="15dp"
+                android:layout_toRightOf="@+id/ProductImg"
+                android:paddingLeft="7dp"
+                android:text="Title"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+            <!--<TextView-->
+            <!--android:id="@+id/FlipkartproDescc"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_below="@+id/FlipkartproTitlee"-->
+            <!--android:layout_centerHorizontal="true"-->
+            <!--android:layout_marginLeft="15dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_toRightOf="@+id/FlipkartprooImg"-->
+            <!--android:padding="5dp"-->
+            <!--/>-->
+
+            <TextView
+                android:id="@+id/ProductDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/Title"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@+id/ProductImg"
+                android:padding="5dp"
+                android:text="Description:"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/ProductDesc"
+                android:layout_below="@+id/Title"
+                android:layout_marginLeft="5dp"
+                android:layout_toRightOf="@+id/ProductDesc"
+                android:padding="5dp"
+                android:text="desc"
+                android:textColor="@color/red_error"
+                android:textSize="13sp" />
+
+
+            <TextView
+                android:id="@+id/ProductDistance"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ProductDesc"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="1dp"
+                android:layout_toRightOf="@+id/ProductImg"
+                android:padding="3dp"
+                android:text="Distance is:"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/FlipkartproSellingPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignBaseline="@id/ProductDistance"
+
+                android:layout_below="@+id/desc"
+                android:layout_toRightOf="@+id/ProductDistance"
+                android:padding="2dp"
+                android:text="distance"
+                android:textColor="@color/red_error"
+                android:textSize="13sp" />
+
+            <!--<TextView-->
+            <!--android:layout_toRightOf="@+id/FkImg"-->
+            <!--android:layout_below="@+id/FlipkartproSellingPrice"-->
+            <!--android:text="@string/setb"-->
+            <!--android:id="@+id/setb"-->
+            <!--android:layout_marginLeft="16dp"-->
+            <!--android:layout_marginTop="1dp"-->
+            <!--android:padding="3dp"-->
+            <!--android:textSize="13sp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+            <!--<TextView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_below="@+id/FlipkartproSellingPrice"-->
+                <!--android:layout_marginLeft="15dp"-->
+                <!--android:layout_marginTop="3dp"-->
+                <!--android:layout_toRightOf="@+id/ProductImg"-->
+                <!--android:padding="3dp"-->
+                <!--android:id="@+id/tt"-->
+                <!--android:text="@string/setb"-->
+                <!--android:textSize="13dp" />-->
+
+
+
+            <!--<Button-->
+            <!--android:id="@+id/btnBookMark"-->
+            <!--android:layout_marginLeft="20dp"-->
+            <!--android:layout_below="@+id/FlipkartproPrice"-->
+            <!--android:layout_toRightOf="@+id/FlipkartproSellingPrice"-->
+            <!--android:layout_width="30dp"-->
+            <!--android:background="@drawable/ic_star_border_black_24dp"-->
+            <!--android:layout_height="30dp" />-->
+            <!--<TextView-->
+            <!--android:id="@+id/FlipkartproInStock"-->
+            <!--android:padding="5dp"-->
+            <!--android:layout_below="@+id/FlipkartproSellingPrice"-->
+            <!--android:layout_toRightOf="@+id/FlipkartprooImg"-->
+            <!--android:layout_marginLeft="10dp"-->
+            <!--android:layout_marginTop="5dp"-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content" />-->
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+</LinearLayout>
