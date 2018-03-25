@@ -24,23 +24,26 @@ public class BeforeTabLayout extends AppCompatActivity {
     }
 
     public void gotoTab(View view) {
-        Intent intent=new Intent(getApplicationContext(),home.class);
+        //Intent intent=new Intent(getApplicationContext(),home.class);
+        Intent intent=new Intent(getApplicationContext(),NewTabNav.class);
         startActivity(intent);
     }
 
     public void gotoTab3(View view) {
-        Intent intent=new Intent(getApplicationContext(),home.class);
+        //Intent intent=new Intent(getApplicationContext(),home.class);
+        Intent intent=new Intent(getApplicationContext(),NewTabNav.class);
         startActivity(intent);
     }
   public void gotoTab4(View view) {
-      Intent intent=new Intent(getApplicationContext(),home.class);
+      //Intent intent=new Intent(getApplicationContext(),home.class);
+      Intent intent=new Intent(getApplicationContext(),NewTabNav.class);
       startActivity(intent);
 
   }
   public void gotoTab1(View view) {
-      Intent intent=new Intent(getApplicationContext(),home.class);
-      startActivity(intent);
-    }
+      //Intent intent=new Intent(getApplicationContext(),home.class);
+      Intent intent=new Intent(getApplicationContext(),NewTabNav.class);
+  }
 
     public class MyTimerTask extends TimerTask {
         @Override

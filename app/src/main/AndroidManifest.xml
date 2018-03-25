@@ -32,7 +32,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".SplashActivity" />
-        <activity android:name=".BeforeTabLayout"></activity>
+        <activity android:name=".BeforeTabLayout" />
+        <activity android:name=".NewTabNav"></activity>
     </application>
 
 </manifest>
