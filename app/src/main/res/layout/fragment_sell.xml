@@ -1,16 +1,92 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fcproject.grabhouce.sellFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:textSize="20dp"
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:text="Hello Sell Fragment"  />
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/btnChoose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="19dp"
+            android:layout_marginTop="46dp"
+            android:text="choose image" />
+
+        <EditText
+            android:id="@+id/etNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:hint="enter number"
+            android:layout_alignStart="@+id/etLocation"
+            android:layout_below="@+id/etLocation"
+            android:layout_marginTop="26dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etLocation"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/etPrice"
+            android:hint="enter location"
+            android:layout_below="@+id/etPrice"
+            android:layout_marginTop="25dp"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/etTitle"
+            android:layout_below="@+id/etTitle"
+            android:layout_marginTop="20dp"
+            android:hint="enter price"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/etTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/btnChoose"
+            android:layout_marginStart="45dp"
+            android:layout_marginTop="24dp"
+            android:hint="enter title"
+            android:ems="10"
+            android:inputType="textPersonName" />
+
+        <ImageView
+            android:id="@+id/ivImg"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_above="@+id/etTitle"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="52dp"
+          />
+
+        <Button
+            android:id="@+id/btnUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignTop="@+id/etNumber"
+            android:layout_marginTop="91dp"
+            android:layout_toEndOf="@+id/btnChoose"
+            android:text="upload" />
+
+    </RelativeLayout>
+
 </FrameLayout>
 
 <!--</FrameLayout>-->

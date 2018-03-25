@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "770079560051-o0dj485v3jv7j2d575a59arh364ltiao.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.fcproject.grabhouce",
+            "certificate_hash": "520391b02f9e7d65161a0c14defbe8a57b706b28"
+          }
+        },
+        {
           "client_id": "770079560051-8cca3tskc2npbjf2qfl6jv1ko542etj9.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
