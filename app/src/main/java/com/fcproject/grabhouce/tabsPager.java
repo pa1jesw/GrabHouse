@@ -36,11 +36,11 @@ public class tabsPager extends FragmentStatePagerAdapter{
                 purchaseFragment pf = new purchaseFragment();
                 return pf;
             case 1:
-                rentFragment rf = new rentFragment();
-                return rf;
+             //   rentFragment rf = new rentFragment();
+               // return rf;
             case 2:
-                sellFragment sf = new sellFragment();
-                return sf;
+           //     sellFragment sf = new sellFragment();
+           //     return sf;
             default:
                 return null;
         }
