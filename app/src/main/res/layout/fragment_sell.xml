@@ -70,10 +70,8 @@
             android:id="@+id/ivImg"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            android:layout_above="@+id/etTitle"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="52dp"
-          />
+            android:layout_alignParentTop="true"
+            android:layout_toEndOf="@+id/btnUpload" />
 
         <Button
             android:id="@+id/btnUpload"

@@ -8,6 +8,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
@@ -161,8 +162,11 @@ public class NewTabNav extends AppCompatActivity {
                                 intent = new Intent(getApplicationContext(), NewTabNav.class);
                             } else if (drawerItem.getIdentifier() == 2) {
                                 //intent = new Intent(MainActivity.this, Class.class);
+                                Toast.makeText(NewTabNav.this, "option 2 is elected", Toast.LENGTH_SHORT).show();
                             } else if (drawerItem.getIdentifier() == 3) {
                                 //intent = new Intent(MainActivity.this, Class.class);
+                                Toast.makeText(NewTabNav.this, "option 3 is elected", Toast.LENGTH_SHORT).show();
+
                             } else if (drawerItem.getIdentifier() == 11) {
                                 //intent = new Intent(MainActivity.this, Class.class);
                             } else if (drawerItem.getIdentifier() == 12) {
