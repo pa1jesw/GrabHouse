@@ -34,4 +34,14 @@
     <string name="purchase">Purchase</string>
     <string name="rent">Rent</string>
     <string name="sell">Sell</string>
+    <string name="title_activity_bottom_nav_activityy">BottomNavActivityy</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="number">Enter Number</string>
+    <string name="location">Enter Location</string>
+    <string name="upload">Browse Image</string>
+    <string name="up">Upload</string>
+    <string name="price">Enter Price</string>
+    <string name="desc">Enter Property Description</string>
 </resources>
