@@ -3,10 +3,14 @@ package com.fcproject.grabhouce;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class BottomNavActivityy extends AppCompatActivity {
 
@@ -66,12 +70,17 @@ public class BottomNavActivityy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bottom_nav_activityy);
 
+        List<Fragment> fragments = new ArrayList<>(4);
+
+        fragments.add(PageTwo.newInstance(0));
+        fragments.add(PageThree.newInstance(0));
+        fragments.add(PageFour.newInstance(0));
 
         BottomNavigationView navigation = (BottomNavigationView) findViewById(R.id.navigation);
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
-        setTitle("Purchase");
-        PageTwo fragment2=new PageTwo();
+      setTitle("Purchase");
+        PageOne fragment2=new PageOne();
         FragmentTransaction fragmentTransaction2=getSupportFragmentManager().beginTransaction();
         fragmentTransaction2.replace(R.id.content,fragment2,"FragmentName");
         fragmentTransaction2.commit();

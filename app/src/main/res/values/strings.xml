@@ -44,4 +44,9 @@
     <string name="up">Upload</string>
     <string name="price">Enter Price</string>
     <string name="desc">Enter Property Description</string>
+
+    <string-array name="rentorpurchase">
+        <item>Sell</item>
+        <item>Lease</item>
+    </string-array>
 </resources>

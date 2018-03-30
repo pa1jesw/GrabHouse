@@ -1,11 +1,8 @@
 package com.fcproject.grabhouce;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-
-import static com.fcproject.grabhouce.R.*;
 
 /**
  * Created by MUKESH on 14-02-2018.
@@ -33,8 +30,8 @@ public class tabsPager extends FragmentStatePagerAdapter{
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                purchaseFragment pf = new purchaseFragment();
-                return pf;
+              //  purchaseFragment pf = new purchaseFragment();
+               // return pf;
             case 1:
              //   rentFragment rf = new rentFragment();
                // return rf;

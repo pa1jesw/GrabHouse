@@ -7,6 +7,7 @@ public class Upload {
     public String location;
     public String number;
     public String url;
+    public String selection;
 
 
     // Default constructor required for calls to
@@ -14,12 +15,14 @@ public class Upload {
     public Upload() {
     }
 
-    public Upload(String title,String price,String location,String number, String url) {
+    public Upload(String title,String price,String location,String number,String selection, String url) {
         this.title=title;
         this.number=number;
         this.location=location;
         this.price=price;
+        this.selection=selection;
         this.url= url;
+
     }
 
     public String getTitle() {
@@ -34,7 +37,6 @@ public class Upload {
     public String getPrice() {
         return price;
     }
-
     public String getUrl() {
         return url;
     }

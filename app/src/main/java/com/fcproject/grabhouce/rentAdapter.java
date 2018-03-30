@@ -33,7 +33,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.card_view_rent, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
-        return new ViewHolder(view);
+        return viewHolder;
     }
 
     @Override

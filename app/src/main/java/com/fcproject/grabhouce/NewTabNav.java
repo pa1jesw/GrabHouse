@@ -47,7 +47,7 @@ public class NewTabNav extends AppCompatActivity {
         //add fragments to list
         fragments.add(FirstFragment.newInstance(0));
         fragments.add(SecondFragment.newInstance(0));
-        fragments.add(ThirdFragment.newInstance(0));
+       // fragments.add(ThirdFragment.newInstance(0));
 
         //link fragments to container
         fragNavController = new FragNavController(getSupportFragmentManager(),R.id.container,fragments);

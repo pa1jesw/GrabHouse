@@ -3,11 +3,27 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.fcproject.grabhouce.PageOne">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="frag1" />
+    <include
+        layout="@layout/price_popup"
+        android:id="@+id/pricepop"
+        />
 
+
+</RelativeLayout>
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:layout_marginTop="300dp"
+    >
+    <include
+        android:id="@+id/rangepop"
+        layout="@layout/range_popup"
+
+         />
+</RelativeLayout>
 </FrameLayout>

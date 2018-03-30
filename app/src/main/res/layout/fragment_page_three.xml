@@ -4,10 +4,141 @@
     android:layout_height="match_parent"
     tools:context="com.fcproject.grabhouce.PageThree">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="frag3" />
+        android:layout_height="match_parent">
+
+
+        <ImageView
+            android:src="@drawable/ic_launcher_background"
+            android:id="@+id/ivImg"
+            android:layout_width="180dp"
+            android:layout_height="220dp"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp" />
+        <LinearLayout
+            android:id="@+id/l1"
+            android:orientation="horizontal"
+            android:layout_below="@+id/ivImg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txtIn1"
+                android:layout_below="@+id/ivImg"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/materialize_typography_body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etNumber"
+                    android:hint="@string/number"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:inputType="number|numberDecimal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </android.support.design.widget.TextInputLayout>
+
+            <android.support.design.widget.TextInputLayout
+                android:id="@+id/txtIn2"
+                android:layout_below="@+id/txtIn1"
+                android:layout_weight="1"
+                android:layout_margin="@dimen/materialize_typography_body2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etLocation"
+                    android:inputType="text"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="15sp"
+                    android:layout_weight="1"
+                    android:hint="@string/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/l2"
+            android:layout_below="@+id/l1"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="@dimen/materialize_typography_body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="15sp"
+                    android:id="@+id/etPrice"
+                    android:layout_weight="1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/price"/>
+            </android.support.design.widget.TextInputLayout>
+
+
+            <Spinner
+                android:id="@+id/rentorpurchase"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1" />
+
+
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_margin="@dimen/materialize_typography_body2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:id="@+id/etTitle"
+                    android:textStyle="bold"
+                    android:fontFamily="monospace"
+                    android:textSize="15sp"
+                    android:inputType="textMultiLine"
+                    android:maxLines="2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/desc"/>
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_below="@+id/l2"
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/btnChoose"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/button_file"
+                android:text="@string/upload"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+            <Button
+                android:id="@+id/btnUpload"
+                android:text="@string/up"
+                android:background="@drawable/button_file"
+                android:textStyle="bold"
+                android:fontFamily="monospace"
+                android:textSize="15sp"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </FrameLayout>
