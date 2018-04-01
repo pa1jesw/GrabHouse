@@ -14,9 +14,14 @@ import android.view.ViewGroup;
 public class PageOne extends Fragment {
 
 
-    public PageOne() {
-        // Required empty public constructor
+    public static PageOne newInstance(int instance) {
+        Bundle args = new Bundle();
+        args.putInt("argsInstance", instance);
+        PageOne pageOne = new PageOne();
+        pageOne.setArguments(args);
+        return pageOne;
     }
+
 
 
     @Override

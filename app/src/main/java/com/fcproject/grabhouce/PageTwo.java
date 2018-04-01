@@ -2,6 +2,7 @@ package com.fcproject.grabhouce;
 
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
@@ -64,7 +65,8 @@ public class PageTwo extends Fragment {
                     if(upload.selection.equals("Sell")) uploads.add(upload);
                 }
                 //creating adapter
-                adapter = new rentAdapter(getActivity().getApplicationContext(), uploads);
+                Context context=getActivity();
+                adapter = new rentAdapter(context, uploads);
 
                 //adding adapter to recyclerview
                 recyclerView.setAdapter(adapter);

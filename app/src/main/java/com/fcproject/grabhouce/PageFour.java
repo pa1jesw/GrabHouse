@@ -63,7 +63,7 @@ public class PageFour extends Fragment {
                     if(upload.selection.equals("Lease")) uploads.add(upload);
                 }
                 //creating adapter
-                adapter = new rentAdapter(getActivity().getApplicationContext(), uploads);
+                adapter = new rentAdapter(getActivity(), uploads);
 
                 //adding adapter to recyclerview
                 recyclerView.setAdapter(adapter);

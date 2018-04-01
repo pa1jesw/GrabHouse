@@ -32,6 +32,7 @@ public class BottomNavActivityy extends AppCompatActivity {
                     fragmentTransaction.replace(R.id.content,fragment,"FragmentName");
                     fragmentTransaction.commit();
                     return true;
+
                 case R.id.navigation_dashboard:
                     //mTextMessage.setText(R.string.title_dashboard);
 
@@ -41,6 +42,7 @@ public class BottomNavActivityy extends AppCompatActivity {
                     fragmentTransaction2.replace(R.id.content,fragment2,"FragmentName");
                     fragmentTransaction2.commit();
                     return true;
+
                 case R.id.navigation_notifications:
                     //mTextMessage.setText(R.string.title_notifications);
 
@@ -50,6 +52,7 @@ public class BottomNavActivityy extends AppCompatActivity {
                     fragmentTransaction3.replace(R.id.content,fragment3,"FragmentName");
                     fragmentTransaction3.commit();
                     return true;
+
                      case R.id.navigation_rent:
                     //mTextMessage.setText(R.string.title_notifications);
 
@@ -71,7 +74,7 @@ public class BottomNavActivityy extends AppCompatActivity {
         setContentView(R.layout.activity_bottom_nav_activityy);
 
         List<Fragment> fragments = new ArrayList<>(4);
-
+        fragments.add(PageOne.newInstance(0));
         fragments.add(PageTwo.newInstance(0));
         fragments.add(PageThree.newInstance(0));
         fragments.add(PageFour.newInstance(0));
