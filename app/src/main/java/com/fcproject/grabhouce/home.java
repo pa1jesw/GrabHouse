@@ -162,8 +162,8 @@ public class home extends AppCompatActivity
 
         myDialogPrice = new Dialog(this);
         myDialogPrice.setContentView(R.layout.price_popup);
-        seekprice = (SeekBar) myDialogPrice.findViewById(R.id.seekprice);
-        seektextprice = (TextView) myDialogPrice.findViewById(R.id.seektextprice);
+        //seekprice = (SeekBar) myDialogPrice.findViewById(R.id.seekprice);
+        //seektextprice = (TextView) myDialogPrice.findViewById(R.id.seektextprice);
         textcloseprice = (TextView) myDialogPrice.findViewById(R.id.textcloseprice);
 
         seekprice.setMax(1000);
