@@ -129,7 +129,7 @@ public class MainActivity extends AppCompatActivity {
         currentuser=FirebaseAuth.getInstance().getCurrentUser();
         if(currentuser!=null)
         {
-            Intent userintent=new Intent(getApplicationContext(),BottomNavActivityy.class);
+            Intent userintent=new Intent(getApplicationContext(),NavActivity.class);
             userintent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(userintent);
         }
@@ -218,7 +218,7 @@ public class MainActivity extends AppCompatActivity {
                         currentuser=mAuth.getCurrentUser();
                         String userEmail=currentuser.getEmail();
                         Toast.makeText(getApplicationContext(), "Login successful with email id "+userEmail, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(getApplicationContext(),BottomNavActivityy.class);
+                        Intent intent=new Intent(getApplicationContext(),NavActivity.class);
                         startActivity(intent);
                         finish();
                     }

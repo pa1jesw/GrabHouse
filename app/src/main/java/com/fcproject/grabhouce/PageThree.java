@@ -30,6 +30,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.OnProgressListener;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.io.IOException;
 
@@ -71,8 +72,7 @@ public class PageThree extends Fragment {
         etNumber=view.findViewById(R.id.etNumber);
         ivImg=view.findViewById(R.id.ivImg);
         spnspin=view.findViewById(R.id.rentorpurchase);
-
-        final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+      final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
                 R.array.rentorpurchase, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spnspin.setAdapter(adapter);

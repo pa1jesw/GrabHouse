@@ -49,4 +49,5 @@
         <item>Sell</item>
         <item>Lease</item>
     </string-array>
+    <string name="title_activity_nav">NavActivity</string>
 </resources>
