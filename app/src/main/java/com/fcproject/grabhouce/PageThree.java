@@ -50,6 +50,7 @@ public class PageThree extends Fragment {
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
     String selection;
+    MaterialSpinner materialSpinner;
 
     public static PageThree newInstance(int instance) {
         Bundle args = new Bundle();
@@ -71,26 +72,34 @@ public class PageThree extends Fragment {
         etLocation=view.findViewById(R.id.etLocation);
         etNumber=view.findViewById(R.id.etNumber);
         ivImg=view.findViewById(R.id.ivImg);
-        spnspin=view.findViewById(R.id.rentorpurchase);
-      final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
-                R.array.rentorpurchase, android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnspin.setAdapter(adapter);
+        //spnspin=view.findViewById(R.id.rentorpurchase);
+        materialSpinner=view.findViewById(R.id.rentorpurchase);
+        materialSpinner.setItems("Sell","Lease");
+        materialSpinner.setOnItemSelectedListener(new MaterialSpinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
+                selection= (String) item;
+            }
+        });
+//      final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
+//                R.array.rentorpurchase, android.R.layout.simple_spinner_item);
+//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        spnspin.setAdapter(adapter);
 
         storageReference = FirebaseStorage.getInstance().getReference();
         mDatabase = FirebaseDatabase.getInstance().getReference(Constants.DATABASE_PATH_UPLOADS);
 
-       spnspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-           @Override
-           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-               selection= (String) adapterView.getItemAtPosition(i);
-           }
-
-           @Override
-           public void onNothingSelected(AdapterView<?> adapterView) {
-
-           }
-       });
+//       spnspin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//           @Override
+//           public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//               selection= (String) adapterView.getItemAtPosition(i);
+//           }
+//
+//           @Override
+//           public void onNothingSelected(AdapterView<?> adapterView) {
+//
+//           }
+//       });
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
