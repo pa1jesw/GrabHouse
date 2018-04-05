@@ -1,14 +1,14 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.fcproject.grabhouce.PageThree">
 
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
 
         <ImageView
@@ -98,7 +98,8 @@
                 android:layout_margin="2dp"
                 android:layout_width="match_parent"
                 app:ms_text_color="#000"
-                app:ms_arrow_tint="@color/colorAccent"
+                app:ms_background_color="#ebfff0"
+                app:ms_arrow_tint="@color/colorPrimaryDark"
                 android:layout_height="wrap_content"/>
 
 

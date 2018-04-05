@@ -22,4 +22,5 @@
     <color name="btnPressed">#4adfd8</color>
     <color name="btn">#f74848</color>
     <color name="btnNotPressed">#019e1b</color>
+    <color name="transparent">#0000f529</color>
 </resources>

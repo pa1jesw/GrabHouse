@@ -1,29 +1,84 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
+<!--<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
+    <!--xmlns:tools="http://schemas.android.com/tools"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--tools:context="com.fcproject.grabhouce.PageOne">-->
+<!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="250dp"-->
+    <!--&gt;-->
+
+    <!--<include-->
+        <!--layout="@layout/price_popup"-->
+        <!--android:id="@+id/pricepop"-->
+        <!--/>-->
+
+
+<!--</RelativeLayout>-->
+<!--<RelativeLayout-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="250dp"-->
+    <!--android:layout_marginTop="300dp"-->
+    <!--&gt;-->
+    <!--<include-->
+        <!--android:id="@+id/rangepop"-->
+        <!--layout="@layout/range_popup"-->
+
+         <!--/>-->
+<!--</RelativeLayout>-->
+<!--</FrameLayout>-->
+<RelativeLayout
     android:layout_height="match_parent"
-    tools:context="com.fcproject.grabhouce.PageOne">
-<RelativeLayout
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+        android:text="@string/whatoffer"
+        android:textStyle="bold"
+        android:fontFamily="monospace"
+        android:textSize="14sp"
+        android:layout_margin="2dp"
+        android:padding="5dp"
+        android:textColor="#000"
+        android:id="@+id/t2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_below="@+id/t2"
+        android:layout_margin="5dp"
+        android:id="@+id/homeRecycler"
+        android:layout_width="match_parent"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"/>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/t1"
+        android:layout_below="@+id/homeRecycler"
+        android:layout_width="match_parent"
+        android:layout_margin="10dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:hint="@string/city"
+            android:layout_width="match_parent"
+            android:textStyle="bold"
+            android:fontFamily="monospace"
+            android:layout_height="wrap_content" />
+    </android.support.design.widget.TextInputLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/t1"
     android:layout_width="match_parent"
     android:layout_height="250dp"
     >
 
     <include
-        layout="@layout/price_popup"
-        android:id="@+id/pricepop"
-        />
+    layout="@layout/price_popup"
+    android:id="@+id/pricepop"
+    />
 
+
+    </RelativeLayout>
 
 </RelativeLayout>
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="250dp"
-    android:layout_marginTop="300dp"
-    >
-    <include
-        android:id="@+id/rangepop"
-        layout="@layout/range_popup"
-
-         />
-</RelativeLayout>
-</FrameLayout>

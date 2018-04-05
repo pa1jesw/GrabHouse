@@ -49,5 +49,7 @@
         <item>Sell</item>
         <item>Lease</item>
     </string-array>
-    <string name="title_activity_nav">NavActivity</string>
+    <string name="title_activity_nav">GrabHouse</string>
+    <string name="city">Search by locality</string>
+    <string name="whatoffer">Popular cities to search by</string>
 </resources>
