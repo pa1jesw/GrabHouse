@@ -209,7 +209,7 @@ public class create_account extends AppCompatActivity {
                             Log.d("ABC1", "signInWithCredential:success");
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(create_account.this,"SIGN IN SUCCESSFULLY",Toast.LENGTH_LONG);
-                            startActivity(new Intent(getApplicationContext(),BeforeTabLayout.class));
+                            startActivity(new Intent(getApplicationContext(),BottomNavActivityy.class));
                         } else {
                             // If sign in fails , display a message to the user.
                             Toast.makeText(create_account.this,"Authetication Failed",Toast.LENGTH_LONG);
@@ -266,7 +266,7 @@ public class create_account extends AppCompatActivity {
                         currentuser=mAuth.getCurrentUser();
                         String userEmail=currentuser.getEmail();
                         Toast.makeText(getApplicationContext(), "Account created successfully!  with email Id"+ userEmail, Toast.LENGTH_SHORT).show();
-                        Intent intent=new Intent(getApplicationContext(),BeforeTabLayout.class);
+                        Intent intent=new Intent(getApplicationContext(),BottomNavActivityy.class);
                         startActivity(intent);
                         finish();
                     }
