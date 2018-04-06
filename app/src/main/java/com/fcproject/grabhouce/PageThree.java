@@ -42,14 +42,13 @@ import static android.app.Activity.RESULT_OK;
  */
 public class PageThree extends Fragment {
     Button btnChoose,btnUpload;
-    Spinner spnspin;
     EditText etTitle,etPrice,etLocation,etNumber;
     ImageView ivImg;
     static final int PICK_IMAGE_REQUEST = 123;
     private Uri filePath;
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
-    String selection;
+    String selection="Sell";
     MaterialSpinner materialSpinner;
 
     public static PageThree newInstance(int instance) {
@@ -80,6 +79,8 @@ public class PageThree extends Fragment {
             public void onItemSelected(MaterialSpinner view, int position, long id, Object item) {
                 selection= (String) item;
             }
+
+
         });
 //      final ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getActivity(),
 //                R.array.rentorpurchase, android.R.layout.simple_spinner_item);

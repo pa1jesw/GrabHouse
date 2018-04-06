@@ -6,10 +6,14 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.EditorInfo;
+import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarChangeListener;
 import com.crystal.crystalrangeseekbar.interfaces.OnRangeSeekbarFinalValueListener;
@@ -27,6 +31,7 @@ public class PageOne extends Fragment {
     RecyclerView recyclerView;
     ArrayList<String> cNames = new ArrayList<>();
     ArrayList<String>imgUrls = new ArrayList<>();
+    EditText etCname;
 
 
     public static PageOne newInstance(int instance) {
@@ -45,24 +50,37 @@ public class PageOne extends Fragment {
         // Inflate the layout for this fragment
         View view= inflater.inflate(R.layout.fragment_page_one, container, false);
         recyclerView=view.findViewById(R.id.homeRecycler);
+        etCname=view.findViewById(R.id.etCname);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(),LinearLayoutManager.HORIZONTAL,false));
         RecyclerViewAdapter recyclerViewAdapter=new RecyclerViewAdapter(getContext(),cNames,imgUrls);
         recyclerView.setAdapter(recyclerViewAdapter);
-//
-//      final CrystalRangeSeekbar rangeSeekbar = view.findViewById(R.id.rangeSeekbar1);
-//        final TextView tvMin =  view.findViewById(R.id.tvmin);
-//        final TextView tvMax = view.findViewById(R.id.tvmax);
-//        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
-//            @Override
-//            public void valueChanged(Number minValue, Number maxValue) {
-//                tvMin.setText(String.valueOf(minValue));
-//                tvMax.setText(String.valueOf(maxValue));
-//                Constants.MIN_PLACE_PRICE=Integer.parseInt((String) tvMin.getText());
-//                Constants.MAX_PLACE_PRICE=Integer.parseInt((String) tvMax.getText());
-//
-//            }
-//        });
+
+      final CrystalRangeSeekbar rangeSeekbar = view.findViewById(R.id.rangeSeekbar1);
+        final TextView tvMin =  view.findViewById(R.id.tvmin);
+        final TextView tvMax = view.findViewById(R.id.tvmax);
+        rangeSeekbar.setOnRangeSeekbarChangeListener(new OnRangeSeekbarChangeListener() {
+            @Override
+            public void valueChanged(Number minValue, Number maxValue) {
+                tvMin.setText(String.valueOf(minValue));
+                tvMax.setText(String.valueOf(maxValue));
+                Constants.MIN_PLACE_PRICE=Integer.parseInt((String) tvMin.getText());
+                Constants.MAX_PLACE_PRICE=Integer.parseInt((String) tvMax.getText());
+
+            }
+        });
         imgUrlFromInternet();
+        etCname.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_SEARCH) {
+                 String cname= String.valueOf(etCname.getText());
+                    Toast.makeText(getContext(), cname, Toast.LENGTH_SHORT).show();
+                  Constants.C_NAME= String.valueOf(cname);
+                    return true;
+                }
+                return false;
+            }
+        });
         return view;
     }
 

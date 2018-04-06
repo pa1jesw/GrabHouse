@@ -7,4 +7,6 @@ public class Constants {
 
     public static int MIN_PLACE_PRICE=0;
     public static int MAX_PLACE_PRICE=10000000;
+
+    public static String C_NAME = "";
 }

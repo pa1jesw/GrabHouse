@@ -44,6 +44,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             @Override
             public void onClick(View view) {
                 Toast.makeText(context, cNames.get(position), Toast.LENGTH_SHORT).show();
+                Constants.C_NAME=cNames.get(position);
             }
         });
 

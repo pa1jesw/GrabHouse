@@ -37,6 +37,9 @@ public class Upload {
     public String getPrice() {
         return price;
     }
+    public String getSelection() {
+        return selection;
+    }
     public String getUrl() {
         return url;
     }

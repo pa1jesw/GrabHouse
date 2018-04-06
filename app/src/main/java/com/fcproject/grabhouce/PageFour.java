@@ -60,9 +60,13 @@ public class PageFour extends Fragment {
                 //iterating through all the values in database
                 for (DataSnapshot postSnapshot : snapshot.getChildren()) {
                     Upload upload = postSnapshot.getValue(Upload.class);
-                    if(upload.selection.equals("Lease")) {
+                    if(upload.getSelection().equals("Lease")) {
                         if(Integer.parseInt(upload.getPrice()) >= Constants.MIN_PLACE_PRICE && Integer.parseInt(upload.getPrice()) <= Constants.MAX_PLACE_PRICE   ){
-                            uploads.add(upload);
+                            if(Constants.C_NAME.equals(""))
+                                uploads.add(upload);
+                            else if(upload.getLocation().equals(Constants.C_NAME))
+                                uploads.add(upload);
+
                         }}
                 }
                 //creating adapter

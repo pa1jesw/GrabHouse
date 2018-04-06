@@ -59,12 +59,16 @@
         android:layout_width="match_parent"
         android:layout_margin="10dp"
         android:layout_height="wrap_content">
+
         <EditText
-            android:hint="@string/city"
+            android:id="@+id/etCname"
             android:layout_width="match_parent"
-            android:textStyle="bold"
+            android:layout_height="wrap_content"
             android:fontFamily="monospace"
-            android:layout_height="wrap_content" />
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:hint="@string/city"
+            android:textStyle="bold" />
     </android.support.design.widget.TextInputLayout>
 
     <RelativeLayout
