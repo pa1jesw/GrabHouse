@@ -22,7 +22,8 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Set_Image" />
-        <activity android:name=".bookmarks" />
+        <activity android:name=".bookmark" />
+        <activity android:name=".DetailInfoActivity" />
         <activity android:name=".OnBoarding" />
         <activity android:name=".Preferences">
             <intent-filter>

@@ -275,7 +275,7 @@ public class home extends AppCompatActivity
         } else if (id == R.id.nav_price) {
             seekbarprice();
         } else if (id == R.id.nav_bookmark) {
-            Intent i = new Intent(this,bookmarks.class);
+            Intent i = new Intent(this,bookmark.class);
             startActivity(i);
         } else if (id == R.id.nav_share) {
             String message = "Download share and enjoy grabing your house handsON";

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,9 +13,12 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -24,9 +28,12 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
     Context context;
     List<Upload> uploads;
 
+    final MyDatabaseHelper dbh;
+
     public rentAdapter(Context context, List<Upload> uploads) {
         this.uploads = uploads;
         this.context = context;
+        dbh=MyDatabaseHelper.getInstance(context);
     }
 
     @Override
@@ -41,10 +48,25 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         Upload upload = uploads.get(position);
 
         holder.tvTitle.setText("Title: " + upload.getTitle());
+        holder.title=upload.getTitle();
         holder.tvPrice.setText("Price: " + upload.getPrice());
+        holder.price=upload.getPrice();
         holder.tvLocation.setText("Location: " + upload.getLocation());
-        holder.number = upload.getNumber();
+        holder.location = upload.getLocation();
         Glide.with(context).load(upload.getUrl()).into(holder.ivImage);
+
+
+        ArrayList<String> marksbook=new ArrayList<String>(dbh.getAllbookmark());
+        Iterator<String> itc=marksbook.iterator();
+        while(itc.hasNext()){
+            String abc=itc.next();
+            abc = abc.substring(0, abc.length() - 1);
+            if(abc.equals(holder.title)){
+                holder.flag=0;
+                holder.btn.setBackgroundResource(R.drawable.ic_star_black_24dp);
+                break;
+            }
+        }
 
      /*
         call not working because of runtime error
@@ -75,6 +97,9 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         String number;
         Button btnCall;
         ImageView ivImage;
+        Button btn;
+        String title,price,location;
+        int flag;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -83,6 +108,43 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
             tvLocation=itemView.findViewById(R.id.tvLocation);
             btnCall=itemView.findViewById(R.id.btnCall);
             ivImage=itemView.findViewById(R.id.ivImage);
+            btn=itemView.findViewById(R.id.bookmark);
+            flag=1;
+
+
+            btn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    if(flag==1)
+                    {
+                        //button.setBackgroundColor(Color.CYAN);
+                        btn.setBackgroundResource(R.drawable.ic_star_black_24dp);
+                        Toast.makeText(context.getApplicationContext(), "set bookmark", Toast.LENGTH_SHORT).show();
+                        dbh.addBookmark(title);
+                        flag=0;
+                    }
+                    else
+                    {
+                        btn.setBackgroundResource(R.drawable.ic_star_border_black_24dp);
+                        //  Toast.makeText(context.getApplicationContext(), "cancel bookmark", Toast.LENGTH_SHORT).show();
+                        dbh.delBookmark(title);
+                        flag=1;
+                    }
+                }
+            });
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Bundle bundle=new Bundle();
+                    bundle.putString("title", title);
+                    bundle.putString("price",price);
+                    bundle.putString("location",location);
+                    Intent intent = new Intent(context, DetailInfoActivity.class);
+                    intent.putExtras(bundle);
+                    context.startActivity(intent);
+                }
+            });
 
         }
     }

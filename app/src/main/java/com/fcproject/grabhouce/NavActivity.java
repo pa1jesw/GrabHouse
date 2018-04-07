@@ -175,6 +175,10 @@ public class NavActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_slideshow) {
 
+        } else if (id == R.id.nav_bookmark) {
+            Intent itc=new Intent(NavActivity.this,bookmark.class);
+            startActivity(itc);
+
         } else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
