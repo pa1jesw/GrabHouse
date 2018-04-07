@@ -164,17 +164,17 @@ public class home extends AppCompatActivity
         myDialogPrice.setContentView(R.layout.price_popup);
         //seekprice = (SeekBar) myDialogPrice.findViewById(R.id.seekprice);
         //seektextprice = (TextView) myDialogPrice.findViewById(R.id.seektextprice);
-        textcloseprice = (TextView) myDialogPrice.findViewById(R.id.textcloseprice);
+        //textcloseprice = (TextView) myDialogPrice.findViewById(R.id.textcloseprice);
 
         seekprice.setMax(1000);
         seekprice.setProgress(100);
-        textcloseprice.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                myDialogPrice.dismiss();
-                seekprice.setProgress(seekprice.getProgress());
-            }
-        });
+//        textcloseprice.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                myDialogPrice.dismiss();
+//                seekprice.setProgress(seekprice.getProgress());
+//            }
+//        });
         myDialogPrice.show();
         seektextprice.setText("₹:"+seekprice.getProgress()+"₹/"+seekprice.getMax()+"₹");
         seekprice.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
