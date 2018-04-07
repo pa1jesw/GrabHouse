@@ -55,7 +55,7 @@ public class ChangePassword extends AppCompatActivity {
                 currentuser=FirebaseAuth.getInstance().getCurrentUser();
                 if(currentuser!=null)
                 {
-                    currentuser.updatePassword(pass.getText().toString()).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    currentuser.updatePassword(etpass).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task) {
                             if(task.isSuccessful())
