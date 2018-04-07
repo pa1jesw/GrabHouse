@@ -17,11 +17,11 @@ public class SplashActivity extends AppCompatActivity {
         EasySplashScreen config=new EasySplashScreen(SplashActivity.this)
                 .withFullScreen()
                 .withTargetActivity(MainActivity.class)
-                .withSplashTimeOut(4000)
-                .withBackgroundColor(Color.parseColor("#24898e"))
+                .withSplashTimeOut(3000)
+                .withBackgroundResource(R.drawable.onboardingcolor)
                 .withLogo(R.drawable.logo)
-                .withHeaderText("Welcome Back....")
-                .withFooterText("Created by Ravi")
+                .withHeaderText("")
+                .withFooterText("Created by FC Developers")
                 .withBeforeLogoText("Hello User")
                 .withAfterLogoText("All set to go inside");
 

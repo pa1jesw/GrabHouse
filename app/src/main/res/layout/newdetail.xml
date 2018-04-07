@@ -53,7 +53,7 @@
 
         <Button
             android:id="@+id/btnCall"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:background="@drawable/btn_round_file"
