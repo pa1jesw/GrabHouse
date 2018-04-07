@@ -22,6 +22,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class NavActivity extends AppCompatActivity
 //        implements NavigationView.OnNavigationItemSelectedListener {
 //
@@ -106,7 +108,7 @@ public class NavActivity extends AppCompatActivity
     Button btnSearch;
     EditText etsearch;
     String query;
-
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -117,6 +119,7 @@ public class NavActivity extends AppCompatActivity
         viewPager=(ViewPager)findViewById(R.id.viewpager);
         mSectionsPagerAdapter=new SectionsPagerAdapter(getSupportFragmentManager());
         viewPager.setAdapter(mSectionsPagerAdapter);
+        mAuth=FirebaseAuth.getInstance();
         TabLayout tabLayout=(TabLayout)findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
 
@@ -169,21 +172,23 @@ public class NavActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        if (id == R.id.nav_range) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        } else if (id == R.id.nav_price) {
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_bookmark) {
             Intent itc=new Intent(NavActivity.this,bookmark.class);
             startActivity(itc);
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_rate) {
 
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
+        } else if (id == R.id.nav_logout) {
+            mAuth.signOut();
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+            finish();
 
         }
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

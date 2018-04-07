@@ -37,11 +37,12 @@
         <activity
             android:name=".BottomNavActivityy"
             android:label="@string/title_activity_bottom_nav_activityy"
-            android:theme="@style/xyz"></activity>
+            android:theme="@style/xyz" />
         <activity
             android:name=".NavActivity"
             android:label="@string/title_activity_nav"
-            android:theme="@style/AppTheme"></activity>
+            android:theme="@style/AppTheme" />
+        <activity android:name=".ChangePassword"></activity>
     </application>
 
 </manifest>

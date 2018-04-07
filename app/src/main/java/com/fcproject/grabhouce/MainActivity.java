@@ -233,7 +233,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void forgot(View view) {
 
-        Intent intent=new Intent(getApplicationContext(),create_account.class);
+        Intent intent=new Intent(getApplicationContext(),ChangePassword.class);
         startActivity(intent);
         //finish();
     }

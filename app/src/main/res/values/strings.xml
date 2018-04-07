@@ -52,4 +52,5 @@
     <string name="title_activity_nav">GrabHouse</string>
     <string name="city">Search by locality</string>
     <string name="whatoffer">Popular cities to search by</string>
+    <string name="changepass">Password</string>
 </resources>

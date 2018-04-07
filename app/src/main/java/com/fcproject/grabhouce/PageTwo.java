@@ -16,6 +16,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+import com.stone.vega.library.VegaLayoutManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,8 @@ public class PageTwo extends Fragment {
         View view = inflater.inflate(R.layout.fragment_page_two, container, false);
         recyclerView = view.findViewById(R.id.recycler_view);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
+        //VegaLayoutManager vegaLayoutManager=new VegaLayoutManager();
+        //recyclerView.setLayoutManager(new VegaLayoutManager());
         uploads = new ArrayList<>();
         progressDialog = new ProgressDialog(getActivity());
         progressDialog.setMessage("Please wait...");
