@@ -53,6 +53,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         holder.price=upload.getPrice();
         holder.tvLocation.setText("Location: " + upload.getLocation());
         holder.location = upload.getLocation();
+        holder.number=upload.getNumber();
         Glide.with(context).load(upload.getUrl()).into(holder.ivImage);
 
 
@@ -68,21 +69,20 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
             }
         }
 
-     /*
-        call not working because of runtime error
+
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + holder.number));
-                if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+               /* if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
 
                     context.startActivity(intent);
                     return;
-                }
+                } */
             }
         });
-*/
+
 
     }
 
