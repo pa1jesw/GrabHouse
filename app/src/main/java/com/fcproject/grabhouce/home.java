@@ -68,7 +68,7 @@ public class home extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_home);
+        setContentView(R.layout.activity_nav);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -164,7 +164,7 @@ public class home extends AppCompatActivity
         myDialogPrice.setContentView(R.layout.price_popup);
         //seekprice = (SeekBar) myDialogPrice.findViewById(R.id.seekprice);
         //seektextprice = (TextView) myDialogPrice.findViewById(R.id.seektextprice);
-        textcloseprice = (TextView) myDialogPrice.findViewById(R.id.textcloseprice);
+        textcloseprice = (TextView) myDialogPrice.findViewById(R.id.tv_description);
 
         seekprice.setMax(1000);
         seekprice.setProgress(100);

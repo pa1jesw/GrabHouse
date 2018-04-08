@@ -47,12 +47,15 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.3.1@aar') {
         transitive = true
     }
-
+    compile 'com.erikagtierrez.multiple_media_picker:multiple-media-picker:1.0.3'
     compile 'com.stone.vega.library:VegaLayoutManager:1.0.6'
     compile 'com.getkeepsafe.taptargetview:taptargetview:1.11.0'
 }
 
 //apply plugin: 'com.google.gms.google-services'
+
+
+
 
 
 

@@ -172,17 +172,21 @@ public class NavActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_range) {
+        if (id == R.id.nav_share) {
+            Toast.makeText(this,
+                    "share link will be there ", Toast.LENGTH_LONG).show();
             // Handle the camera action
-        } else if (id == R.id.nav_price) {
+        } else if (id == R.id.nav_userSet) {
 
-        } else if (id == R.id.nav_share) {
+        } else if (id == R.id.nav_myProp) {
 
         } else if (id == R.id.nav_bookmark) {
             Intent itc=new Intent(NavActivity.this,bookmark.class);
             startActivity(itc);
 
-        } else if (id == R.id.nav_rate) {
+        } else if (id == R.id.nav_about) {
+            Intent itc=new Intent(NavActivity.this,aboutus.class);
+            startActivity(itc);
 
         } else if (id == R.id.nav_logout) {
             mAuth.signOut();

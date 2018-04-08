@@ -24,7 +24,8 @@ import com.roughike.bottombar.OnMenuTabClickListener;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewTabNav extends AppCompatActivity {
+public class
+NewTabNav extends AppCompatActivity {
     private BottomBar mBottomBar;
     private FragNavController fragNavController;
 

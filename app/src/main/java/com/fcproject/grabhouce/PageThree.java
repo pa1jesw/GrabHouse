@@ -22,6 +22,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.erikagtierrez.multiple_media_picker.Gallery;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DatabaseReference;
@@ -33,6 +34,7 @@ import com.google.firebase.storage.UploadTask;
 import com.jaredrummler.materialspinner.MaterialSpinner;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -46,6 +48,7 @@ public class PageThree extends Fragment {
     ImageView ivImg;
     static final int PICK_IMAGE_REQUEST = 123;
     private Uri filePath;
+    static final int OPEN_MEDIA_PICKER = 1;  // Request code
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
     String selection="Sell";
@@ -104,7 +107,13 @@ public class PageThree extends Fragment {
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showFileChooser();
+                //showFileChooser();
+                Intent intent = new Intent(getActivity(),Gallery.class);
+                intent.putExtra("title","Select media");
+                // Mode 1 for both images and videos selection, 2 for images only and 3 for videos!
+                intent.putExtra("mode",2);
+                intent.putExtra("maxSelection",5); // Optional
+                startActivityForResult(intent,OPEN_MEDIA_PICKER);
             }
         });
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -137,6 +146,13 @@ public class PageThree extends Fragment {
 
             } catch (IOException e) {
                 e.printStackTrace();
+            }
+        }
+        if (requestCode == OPEN_MEDIA_PICKER) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK && data != null) {
+                ArrayList<String> selectionResult=data.getStringArrayListExtra("result");
+                btnChoose.setText(selectionResult.get(0).toString()+"\n "+selectionResult.get(1).toString());
             }
         }
     }
