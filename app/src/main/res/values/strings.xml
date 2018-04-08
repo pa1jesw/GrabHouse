@@ -38,12 +38,12 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
-    <string name="number">Enter Number</string>
-    <string name="location">Enter Location</string>
+    <string name="number">Enter Phone Number</string>
+    <string name="location">Enter Prop Location</string>
     <string name="upload">Browse Images</string>
-    <string name="up">Upload</string>
+    <string name="up">Upload Here</string>
     <string name="price">Enter Price</string>
-    <string name="desc">Enter Property Description</string>
+    <string name="desc">Enter long Description</string>
 
     <string-array name="rentorpurchase">
         <item>Sell</item>
