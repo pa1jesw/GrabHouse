@@ -5,9 +5,9 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.CALL_PHONE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -26,6 +26,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Set_Image" />
         <activity android:name=".bookmark" />
+        <activity android:name=".detailtwo" />
         <activity android:name=".DetailInfoActivity" />
         <activity android:name=".OnBoarding" />
         <activity android:name=".Preferences">
@@ -46,7 +47,7 @@
             android:label="@string/title_activity_nav"
             android:theme="@style/AppTheme" />
         <activity android:name=".ChangePassword" />
-        <activity android:name=".aboutus"></activity>
+        <activity android:name=".aboutus" />
     </application>
 
 </manifest>

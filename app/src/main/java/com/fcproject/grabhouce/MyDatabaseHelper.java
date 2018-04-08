@@ -35,7 +35,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "create table bookmark(title text PRIMARY KEY)";
+        String sql = "create table bookmark(title text PRIMARY KEY,price text,location,img text)";
         db.execSQL(sql);
     }
 
@@ -45,10 +45,13 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public void addBookmark(String title) {
+    public void addBookmark(String title,String price,String location,String img) {
         db= this.getWritableDatabase();
         ContentValues values=new ContentValues();
         values.put("title",title);
+        values.put("location",location);
+        values.put("img",img);
+        values.put("price",price);
         long rid= db.insert("bookmark",null,values);
         if(rid<0){
             Toast.makeText(context, "Insert issue!Product might be bookmared!", Toast.LENGTH_SHORT).show();
@@ -61,7 +64,7 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
 
     public ArrayList getAllbookmark() {
         db= this.getWritableDatabase();
-        Cursor cursor=db.query("bookmark",null,null,null,null,null,null,null);
+        Cursor cursor=db.query("bookmark", new String[]{"title"},null,null,null,null,null,null);
         ArrayList<String> bms=new ArrayList<>();
         cursor.moveToFirst();
         if(cursor.getCount()>0){
@@ -76,6 +79,42 @@ public class MyDatabaseHelper extends SQLiteOpenHelper {
         db.close();
         return bms;
     }
+
+    public String getPrice(String title) {
+        db= this.getWritableDatabase();
+        Cursor cursor=db.query("bookmark", new String[]{"price"},"title=\'"+title+"\'",null,null,null,null,null);
+        cursor.moveToFirst();
+        String price=cursor.getString(0);
+
+        cursor.close();
+        db.close();
+        return price;
+    }
+
+
+    public String getLocation(String title) {
+        db= this.getWritableDatabase();
+        Cursor cursor=db.query("bookmark", new String[]{"location"},"title=\'"+title+"\'",null,null,null,null,null);
+        cursor.moveToFirst();
+        String location=cursor.getString(0);
+        cursor.close();
+        db.close();
+        return location;
+    }
+
+
+    public String getImg(String title) {
+        db= this.getWritableDatabase();
+        Cursor cursor=db.query("bookmark", new String[]{"img"},"title=\'"+title+"\'",null,null,null,null,null);
+        cursor.moveToFirst();
+        String img=cursor.getString(0);
+
+        cursor.close();
+        db.close();
+        return img;
+    }
+
+
 
     public void delBookmark(String title) {
         db= this.getWritableDatabase();

@@ -50,7 +50,7 @@ public class bookmark extends AppCompatActivity {
             editor.commit();
         }*/
 
-      /*
+
       lvbm.setOnItemClickListener(new OnItemClickListener() {
 
             @Override
@@ -58,7 +58,7 @@ public class bookmark extends AppCompatActivity {
                 String selectedFromList = (String) lvbm.getItemAtPosition(i);
                   selectedFromList = selectedFromList.substring(0, selectedFromList.length() - 1);
 
-                Intent replyIntent = new Intent(bookmark.this,bookmarkcontent.class);
+                Intent replyIntent = new Intent(bookmark.this,detailtwo.class);
                 replyIntent.putExtra("title", selectedFromList);
                 startActivity(replyIntent);
                 //setResult(RESULT_OK, replyIntent);
@@ -66,7 +66,7 @@ public class bookmark extends AppCompatActivity {
 
             }
         });
-    */
+
         lvbm.setOnItemLongClickListener(new OnItemLongClickListener(){
             @Override
             public boolean onItemLongClick(AdapterView<?> av, View v, int pos, long id)

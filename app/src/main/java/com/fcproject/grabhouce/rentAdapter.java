@@ -55,7 +55,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         holder.location = upload.getLocation();
         holder.number=upload.getNumber();
         Glide.with(context).load(upload.getUrl()).into(holder.ivImage);
-
+        holder.img=upload.getUrl();
 
         ArrayList<String> marksbook=new ArrayList<String>(dbh.getAllbookmark());
         Iterator<String> itc=marksbook.iterator();
@@ -99,7 +99,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         Button btnCall;
         ImageView ivImage;
         Button btn;
-        String title,price,location;
+        String title,price,location,img;
         int flag;
 
         public ViewHolder(View itemView) {
@@ -122,7 +122,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
                         btn.setBackgroundResource(R.drawable.ic_star_black_24dp);
                         Toast.makeText(context.getApplicationContext(),
                                 "set bookmark", Toast.LENGTH_SHORT).show();
-                        dbh.addBookmark(title);
+                        dbh.addBookmark(title,price,location,img);
                         flag=0;
                     }
                     else
@@ -142,6 +142,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
                     bundle.putString("title", title);
                     bundle.putString("price",price);
                     bundle.putString("location",location);
+                    bundle.putString("img",img);
                     Intent intent = new Intent(context, DetailInfoActivity.class);
                     intent.putExtras(bundle);
                     context.startActivity(intent);

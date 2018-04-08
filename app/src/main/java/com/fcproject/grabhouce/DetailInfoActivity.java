@@ -33,10 +33,7 @@ Uri uri;
         tvTitle.setText(bundle.getString("title"));
         tvLocation.setText("Location: "+bundle.getString("location"));
         tvPrice.setText("Price: "+bundle.getString("price"));
-
-
-
-     //   Glide.with(this).load(bundle.getString("imgurl")).into(ivimg);
+      Glide.with(this).load(bundle.getString("img")).into(ivimg);
         //final Uri link= Uri.parse(bundle.getString("produrl"));
        //     final String link=bundle.getString("produrl");
         /*btnBuy.setOnClickListener(new View.OnClickListener() {
