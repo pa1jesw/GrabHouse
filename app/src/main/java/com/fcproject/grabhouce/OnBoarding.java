@@ -18,9 +18,15 @@ public class OnBoarding extends AhoyOnboarderActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main2);
-        AhoyOnboarderCard ahoyOnboarderCard1 = new AhoyOnboarderCard("Buy Home", "Searching for your dream home is never an easy task! Don't Worry we got you", R.drawable.home);
-        AhoyOnboarderCard ahoyOnboarderCard2 = new AhoyOnboarderCard("Rent Home", "Rent your home in the fastest way possible through GrabHouse", R.drawable.home);
-        AhoyOnboarderCard ahoyOnboarderCard3 = new AhoyOnboarderCard("Sale ", "Wan't to make some cash from selling your house? GrabHouse does it for you", R.drawable.home);
+        AhoyOnboarderCard ahoyOnboarderCard1 = new AhoyOnboarderCard("Buy Home",
+                "Searching for your dream home is never an easy task! Don't Worry we got you",
+                R.drawable.home);
+        AhoyOnboarderCard ahoyOnboarderCard2 = new AhoyOnboarderCard("Rent Home",
+                "Rent your home in the fastest way possible through GrabHouse",
+                R.drawable.home);
+        AhoyOnboarderCard ahoyOnboarderCard3 = new AhoyOnboarderCard("Sale ",
+                "Wan't to make some cash from selling your house? GrabHouse does it for you",
+                R.drawable.home);
 
         ahoyOnboarderCard1.setBackgroundColor(R.color.white);
         ahoyOnboarderCard2.setBackgroundColor(R.color.white);
@@ -37,18 +43,17 @@ public class OnBoarding extends AhoyOnboarderActivity {
             page.setDescriptionColor(R.color.grey_600);
         }
 
-        setFinishButtonTitle("Finish");
+        setFinishButtonTitle("Check App");
         showNavigationControls(false);
 
         List<Integer> colorList = new ArrayList<>();
         colorList.add(R.color.solid_one);
         colorList.add(R.color.solid_two);
         colorList.add(R.color.solid_three);
-
         setColorBackground(colorList);
 
 //        Typeface face = Typeface.createFromAsset(getAssets(), "fonts/Roboto-Light.ttf");
-//        setFont(face);
+  //      setFont(face);
 
         setOnboardPages(pages);
     }

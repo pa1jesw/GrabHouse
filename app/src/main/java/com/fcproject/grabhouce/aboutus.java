@@ -7,29 +7,28 @@ import android.view.View;
 
 import gr.net.maroulis.library.EasySplashScreen;
 
-public class SplashActivity extends AppCompatActivity {
+public class aboutus extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  setContentView(R.layout.activity_splash);
-
-        EasySplashScreen config=new EasySplashScreen(SplashActivity.this)
+        //setContentView(R.layout.activity_aboutus);
+        EasySplashScreen config=new EasySplashScreen(aboutus.this)
                 .withFullScreen()
-                .withTargetActivity(MainActivity.class)
-                .withSplashTimeOut(2000)
+                //.withTargetActivity(MainActivity.class)
+                //.withSplashTimeOut(2000)
                 //.withBackgroundColor(Color.parseColor("#24898e"))
                 .withLogo(R.drawable.logo)
-                .withHeaderText("Welcome Back....")
-                .withFooterText("")
+                .withHeaderText("About Grab House")
+                .withFooterText("Searching for your dream home is never an easy task! Don't Worry we got you")
                 .withBackgroundResource(R.drawable.onboardingcolor)
-                .withBeforeLogoText("Hello User")
-                .withAfterLogoText("All set to go inside");
+                .withBeforeLogoText("Local Property Dealing Became Easy with")
+                .withAfterLogoText("Grab House");
 
 
         //setting the text color
         config.getHeaderTextView().setTextColor(Color.WHITE);
-        config.getFooterTextView().setTextColor(Color.WHITE);
+        config.getFooterTextView().setTextColor(Color.BLACK);
         config.getBeforeLogoTextView().setTextColor(Color.WHITE);
         config.getAfterLogoTextView().setTextColor(Color.WHITE);
 

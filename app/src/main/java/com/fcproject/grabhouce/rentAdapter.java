@@ -53,7 +53,6 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         holder.price=upload.getPrice();
         holder.tvLocation.setText("Location: " + upload.getLocation());
         holder.location = upload.getLocation();
-        holder.number=upload.getNumber();
         Glide.with(context).load(upload.getUrl()).into(holder.ivImage);
 
 
@@ -70,16 +69,17 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         }
 
 
+        //call not working because of runtime error
         holder.btnCall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Intent intent = new Intent(Intent.ACTION_CALL, Uri.parse("tel:" + holder.number));
-               /* if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
-
-                    context.startActivity(intent);
-                    return;
-                } */
+                Intent cintent = new Intent(Intent.ACTION_DIAL);
+                cintent.setData(Uri.parse("tel:" + holder.number));
+                //if (ActivityCompat.checkSelfPermission(context, android.Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
+                context.startActivity(cintent);
+                return;
+            //}
             }
         });
 
@@ -119,7 +119,8 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
                     {
                         //button.setBackgroundColor(Color.CYAN);
                         btn.setBackgroundResource(R.drawable.ic_star_black_24dp);
-                        Toast.makeText(context.getApplicationContext(), "set bookmark", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context.getApplicationContext(),
+                                "set bookmark", Toast.LENGTH_SHORT).show();
                         dbh.addBookmark(title);
                         flag=0;
                     }

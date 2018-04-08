@@ -3,43 +3,34 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <item android:title="Filter">
+    <item android:title="">
         <menu>
             <item
-                android:id="@+id/nav_range"
+                android:id="@+id/nav_userSet"
                 android:icon="@drawable/ic_location"
-                android:title="Range" />
+                android:title="User Settings" />
             <item
-                android:id="@+id/nav_price"
+                android:id="@+id/nav_myProp"
                 android:icon="@drawable/rupee"
-                android:title="Price" />
-        </menu>
-    </item>
-
-    <item android:title="Bookmarks">
-        <menu>
+                android:title="My Property" />
             <item
                 android:id="@+id/nav_bookmark"
                 android:icon="@drawable/ic_bookmark"
                 android:title="Show Bookmarks" />
-        </menu>
-    </item>
-
-    <item android:title="Communicate">
-        <menu>
             <item
                 android:id="@+id/nav_share"
                 android:icon="@drawable/ic_menu_share"
                 android:title="Share" />
             <item
-                android:id="@+id/nav_rate"
+                android:id="@+id/nav_about"
                 android:icon="@drawable/ic_rate_review"
-                android:title="Rate Us" />
+                android:title="About Us" />
             <item
                 android:id="@+id/nav_logout"
                 android:icon="@drawable/ic_power_logout"
                 android:title="Logout" />
         </menu>
     </item>
+
 
 </menu>

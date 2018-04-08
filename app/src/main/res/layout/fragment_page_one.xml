@@ -77,10 +77,11 @@
     android:layout_height="250dp"
     >
 
-    <include
-    layout="@layout/price_popup"
-    android:id="@+id/pricepop"
-    />
+        <include
+            android:id="@+id/pricepop"
+            layout="@layout/price_popup"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true" />
 
 
     </RelativeLayout>
