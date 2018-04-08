@@ -53,6 +53,7 @@ public class rentAdapter extends RecyclerView.Adapter<rentAdapter.ViewHolder> {
         holder.price=upload.getPrice();
         holder.tvLocation.setText("Location: " + upload.getLocation());
         holder.location = upload.getLocation();
+        holder.number=upload.getNumber();
         Glide.with(context).load(upload.getUrl()).into(holder.ivImage);
 
 
