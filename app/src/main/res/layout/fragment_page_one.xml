@@ -47,11 +47,11 @@
 
     <android.support.v7.widget.RecyclerView
         android:layout_below="@+id/t2"
-        android:layout_margin="5dp"
+        android:layout_margin="15dp"
         android:id="@+id/homeRecycler"
         android:layout_width="match_parent"
         android:orientation="horizontal"
-        android:layout_height="wrap_content"/>
+        android:layout_height="200dp"/>
 
     <android.support.design.widget.TextInputLayout
         android:id="@+id/t1"
@@ -74,7 +74,9 @@
     <RelativeLayout
         android:layout_below="@+id/t1"
     android:layout_width="match_parent"
-    android:layout_height="250dp"
+        android:padding="15dp"
+        android:layout_marginTop="20dp"
+    android:layout_height="300dp"
     >
 
         <include

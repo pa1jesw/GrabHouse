@@ -14,21 +14,23 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Select Price In Lakhs"
+            android:text="Select Price range"
             android:layout_gravity="center"
             android:textStyle="bold"
-            android:textSize="20dp"/>
+            android:textSize="25dp"/>
 
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="300dp"
+        android:layout_width="350dp"
         android:layout_height="200dp"
+        android:padding="5dp"
         android:layout_gravity="center"
         android:orientation="vertical">
 
         <com.crystal.crystalrangeseekbar.widgets.CrystalRangeSeekbar
             android:id="@+id/rangeSeekbar1"
+
             android:layout_width="match_parent"
             app:min_value="0"
             app:max_value="10000000"
@@ -36,6 +38,7 @@
 
         <TextView
             android:id="@+id/tvmin"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="left"
@@ -43,6 +46,7 @@
 
         <TextView
             android:id="@+id/tvmax"
+
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="TextView"

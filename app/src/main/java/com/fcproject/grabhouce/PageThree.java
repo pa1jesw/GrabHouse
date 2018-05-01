@@ -36,6 +36,8 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
@@ -55,6 +57,14 @@ import static android.app.Activity.RESULT_OK;
 /**
  * A simple {@link Fragment} subclass.
  */
+
+
+/*-------------------------------Note----------------------------------*/
+//For Multiple Image View Implement the following Library
+//https://github.com/stfalcon-studio/FrescoImageViewer
+//Multi Image Selector code is working but commented
+//there has to be multiple images for one property that's what we need
+
 public class PageThree extends Fragment implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
     Button btnChoose, btnUpload;
     EditText etTitle, etPrice, etLocation, etNumber;
@@ -65,6 +75,8 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
     private StorageReference storageReference;
     private DatabaseReference mDatabase;
     String selection = "Sell";
+    FirebaseUser currentUser;
+    private FirebaseAuth mAuth;
     private GoogleApiClient mLocationClient;
     private Location mLastLoc;
     MaterialSpinner materialSpinner;
@@ -76,6 +88,7 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
         if (mLocationClient != null) {
             mLocationClient.connect();
         }
+
     }
 
     public static PageThree newInstance(int instance) {
@@ -135,14 +148,14 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
         btnChoose.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
-                Intent intent = new Intent(getActivity(), Gallery.class);
+                //Multi Image Selector Working
+                /*Intent intent = new Intent(getActivity(), Gallery.class);
                 intent.putExtra("title", "Select media");
                 // Mode 1 for both images and videos selection, 2 for images only and 3 for videos!
                 intent.putExtra("mode", 2);
                 intent.putExtra("maxSelection", 5); // Optional
-                startActivityForResult(intent, OPEN_MEDIA_PICKER);
-                //showFileChooser();
+                startActivityForResult(intent, OPEN_MEDIA_PICKER);*/
+                showFileChooser();
             }
         });
         btnUpload.setOnClickListener(new View.OnClickListener() {
@@ -208,7 +221,7 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
 
     private void uploadFile() {
         //checking if file list is not empty
-        if (selectionResult.size() != 0) {
+       // if (selectionResult.size() != 0) {
             //displaying progress dialog while image is uploading
             final ProgressDialog progressDialog = new ProgressDialog(getActivity());
             progressDialog.setTitle("Uploading");
@@ -237,7 +250,8 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
 
                             //creating the upload object to store uploaded image details
                             Upload upload = new
-                                    Upload(title, price, location, number, selection, taskSnapshot.getDownloadUrl().toString());
+                                    Upload( title, price, location, number, selection,
+                                    taskSnapshot.getDownloadUrl().toString());
 
                             //adding an upload to firebase database
                             String uploadId = mDatabase.push().getKey();
@@ -259,11 +273,11 @@ public class PageThree extends Fragment implements GoogleApiClient.ConnectionCal
                             progressDialog.setMessage("Uploaded " + ((int) progress) + "%...");
                         }
                     });
-        } else {
+        /*} else {
 
             //display an error if no file is selected
             Toast.makeText(getActivity().getApplicationContext(), "Error while uploading", Toast.LENGTH_LONG).show();
-        }
+        }*/
 
     }
 

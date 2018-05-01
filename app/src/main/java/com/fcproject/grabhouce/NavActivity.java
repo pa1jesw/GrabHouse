@@ -177,10 +177,6 @@ public class NavActivity extends AppCompatActivity
             Toast.makeText(this,
                     "share link will be there ", Toast.LENGTH_LONG).show();
             // Handle the camera action
-        } else if (id == R.id.nav_userSet) {
-
-        } else if (id == R.id.nav_myProp) {
-
         } else if (id == R.id.nav_bookmark) {
             Intent itc=new Intent(NavActivity.this,bookmark.class);
             startActivity(itc);

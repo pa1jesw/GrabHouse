@@ -5,14 +5,14 @@
 
     <item android:title="">
         <menu>
-            <item
+            <!--<item
                 android:id="@+id/nav_userSet"
                 android:icon="@drawable/ic_location"
                 android:title="User Settings" />
             <item
                 android:id="@+id/nav_myProp"
                 android:icon="@drawable/rupee"
-                android:title="My Property" />
+                android:title="My Property" />-->
             <item
                 android:id="@+id/nav_bookmark"
                 android:icon="@drawable/ic_bookmark"
